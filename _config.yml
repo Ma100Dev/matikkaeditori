@@ -1,0 +1,2 @@
+exclude:
+  bower_components/**/*.md
