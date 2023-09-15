@@ -22,8 +22,7 @@
     "test": "eslint . && node test/testRunner.js",
     "dev": "nodemon -i public,test -e .js,.ts,.html test/index.js",
     "generateMathButtons": "scripts/createMathSvg.js && prettier --write src/latexCommandsWithSvg.js",
-    "lint": "eslint . --ext .js,.ts,.html",
-    "prepare": "npm run build && npm run build:bundle"
+    "lint": "eslint . --ext .js,.ts,.html"
   },
   "repository": {
     "type": "git",
