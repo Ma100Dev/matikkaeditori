@@ -2,4 +2,8 @@
 - Latausindikaattori
 - Localstorage tms tallennus
 - Ulkoasu
-- Korkeampi kuvanlaatu
+- Kuvan sovelias rajaus
+- Jakelu
+- Korjaa tiedoston avaus
+- Toimii ilman internet-yhteyttä
+- "Haluatko varmasti sulkea?"

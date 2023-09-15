@@ -5,6 +5,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Kaavaeditori</title>
+        <link crossorigin="anonymous" rel="icon" type="image/x-icon" href="favicon.png">
+        <!-- TODO: Store locally? -->
         <link crossorigin="anonymous" rel="stylesheet" type="text/css"
             href="//unpkg.com/@digabi/mathquill/build/mathquill.css">
         <link crossorigin="anonymous" rel="stylesheet" type="text/css"
@@ -66,7 +68,7 @@
             <div class="flex-row d-flex justify-content-between w-100">
                 <div class="flex-grow-1 flex-row d-flex">
                     <p class="align-middle mt-auto mb-auto">Avaa tallennettu:</p>
-                    <input type="file" id="input" class="form-control m-1 w-75 ">
+                    <input type="file" accept=".htm,.html,text/html" id="input" class="form-control m-1 w-75 ">
                 </div>
                 <div class="vr text-center justify-content-center"></div>
                 <div class="flex-grow-1 flex-row d-flex">
@@ -162,7 +164,15 @@
     $('#export-png').click(e => {
         e.preventDefault();
         const answer = $('.answer');
-        domtoimage.toBlob(answer.get(0))
+        const scale = 2;
+        domtoimage.toBlob(answer.get(0), {
+            width: answer.width() * scale,
+            height: answer.height() * scale,
+            style: {
+                transform: `scale(${scale})`,
+                transformOrigin: 'top left'
+            }
+        })
             .then(function (blob) {
                 window.saveAs(blob, $('#fileName').val());
             });
