@@ -1,2 +1,6 @@
+# Jekyll configuration
 exclude:
-  bower_components/**/*.md
+  - bower_components/**/*.md
+include:
+  - bower_components/**/*.css
+  - bower_components/**/*.js
