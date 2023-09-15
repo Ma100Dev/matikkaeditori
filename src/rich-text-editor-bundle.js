@@ -1,3 +1,3 @@
-import { makeRichText } from '../src/rich-text-editor'
+import { makeRichText } from '../src/rich-text-editor';
 
-window.makeRichText = makeRichText
+window.makeRichText = makeRichText;

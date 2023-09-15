@@ -110,4 +110,4 @@ export default [
             { character: '∇', latexCommand: '\\nabla' },
         ],
     },
-]
+];

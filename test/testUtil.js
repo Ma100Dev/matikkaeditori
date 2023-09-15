@@ -7,23 +7,23 @@ export const pasteEventMock = (html) => ({
     },
     preventDefault: () => {},
     stopPropagation: () => {},
-})
+});
 
-export const waitUntil = (condition) => (done) => _waitUntil(condition, done)
+export const waitUntil = (condition) => (done) => _waitUntil(condition, done);
 
 function _waitUntil(condition, done) {
-    if (condition()) done()
-    else setTimeout(() => _waitUntil(condition, done), 200)
+    if (condition()) done();
+    else setTimeout(() => _waitUntil(condition, done), 200);
 }
 
 export function delay(done) {
-    setTimeout(done, 16)
+    setTimeout(done, 16);
 }
 
 export function delayFor(ms) {
-    return (done) => setTimeout(done, ms)
+    return (done) => setTimeout(done, ms);
 }
 
 export function isOutsideViewPort($elem) {
-    return $elem.length > 0 && $elem.position().top < 0
+    return $elem.length > 0 && $elem.position().top < 0;
 }

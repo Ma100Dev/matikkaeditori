@@ -1,9 +1,9 @@
-import $ from 'jquery'
-import specialCharacterGroups from './specialCharacters'
-import latexCommandsWithSvg from './latexCommandsWithSvg'
+import $ from 'jquery';
+import specialCharacterGroups from './specialCharacters';
+import latexCommandsWithSvg from './latexCommandsWithSvg';
 
 export function init(mathEditor, hasRichTextFocus, l) {
-    let helpOverlayActiveElement
+    let helpOverlayActiveElement;
 
     const $helpOverlay = $(`<div class="rich-text-editor-overlay rich-text-editor-hidden">
     <div class="rich-text-editor-overlay-modal" aria-modal="true" tabindex="0" data-js="overlayModal" >
@@ -19,20 +19,20 @@ export function init(mathEditor, hasRichTextFocus, l) {
     </div>
 </div>`)
         .on('mousedown', '[data-js="closeOverlayButton"]', (e) => {
-            e.preventDefault()
-            $('body').removeClass('rich-text-editor-overlay-open')
-            $helpOverlay.addClass('rich-text-editor-hidden')
-            helpOverlayActiveElement.focus()
+            e.preventDefault();
+            $('body').removeClass('rich-text-editor-overlay-open');
+            $helpOverlay.addClass('rich-text-editor-hidden');
+            helpOverlayActiveElement.focus();
         })
         .on('mousedown', (e) => {
             if (e.target.classList.contains('rich-text-editor-overlay')) {
-                e.preventDefault()
-                e.stopPropagation()
-                $('body').removeClass('rich-text-editor-overlay-open')
-                $helpOverlay.addClass('rich-text-editor-hidden')
-                helpOverlayActiveElement.focus()
+                e.preventDefault();
+                e.stopPropagation();
+                $('body').removeClass('rich-text-editor-overlay-open');
+                $helpOverlay.addClass('rich-text-editor-hidden');
+                helpOverlayActiveElement.focus();
             }
-        })
+        });
 
     const $toolbar = $(`
         <div class="rich-text-editor-tools" data-js="tools">
@@ -63,44 +63,44 @@ export function init(mathEditor, hasRichTextFocus, l) {
         </div>
         `)
         .on('mousedown', (e) => {
-            e.preventDefault()
+            e.preventDefault();
         })
         .on('mousedown', '[data-js="expandCollapseCharacters"]', (e) => {
-            e.preventDefault()
-            $toolbar.toggleClass('rich-text-editor-show-all-characters')
+            e.preventDefault();
+            $toolbar.toggleClass('rich-text-editor-show-all-characters');
         })
         .on('mousedown', '[data-js="richTextEditorHelp"]', (e) => {
-            e.preventDefault()
-            helpOverlayActiveElement = document.activeElement
-            $('body').addClass('rich-text-editor-overlay-open')
-            $helpOverlay.removeClass('rich-text-editor-hidden')
-            $helpOverlay.find('[data-js="overlayModal"]').focus()
+            e.preventDefault();
+            helpOverlayActiveElement = document.activeElement;
+            $('body').addClass('rich-text-editor-overlay-open');
+            $helpOverlay.removeClass('rich-text-editor-hidden');
+            $helpOverlay.find('[data-js="overlayModal"]').focus();
 
             $(window).on('keydown.help', (e) => {
-                const isEsc = e.keyCode === 27
+                const isEsc = e.keyCode === 27;
                 if (isEsc) {
-                    e.stopPropagation()
-                    e.preventDefault()
-                    $('body').removeClass('rich-text-editor-overlay-open')
-                    $helpOverlay.addClass('rich-text-editor-hidden')
-                    $(window).off('keydown.help')
+                    e.stopPropagation();
+                    e.preventDefault();
+                    $('body').removeClass('rich-text-editor-overlay-open');
+                    $helpOverlay.addClass('rich-text-editor-hidden');
+                    $(window).off('keydown.help');
                 }
-            })
-        })
+            });
+        });
 
-    const $newEquation = $toolbar.find('[data-js="newEquation"]')
-    const $mathToolbar = $toolbar.find('[data-js="mathToolbar"]')
-    initSpecialCharacterToolbar($toolbar, mathEditor, hasRichTextFocus)
-    initMathToolbar($mathToolbar, mathEditor)
-    initNewEquation($newEquation, mathEditor, hasRichTextFocus)
+    const $newEquation = $toolbar.find('[data-js="newEquation"]');
+    const $mathToolbar = $toolbar.find('[data-js="mathToolbar"]');
+    initSpecialCharacterToolbar($toolbar, mathEditor, hasRichTextFocus);
+    initMathToolbar($mathToolbar, mathEditor);
+    initNewEquation($newEquation, mathEditor, hasRichTextFocus);
 
     if ($.fn.i18n) {
-        $toolbar.i18n()
+        $toolbar.i18n();
     } else if ($.fn.localize) {
-        $toolbar.localize()
+        $toolbar.localize();
     }
 
-    return { toolbar: $toolbar, helpOverlay: $helpOverlay }
+    return { toolbar: $toolbar, helpOverlay: $helpOverlay };
 }
 
 const specialCharacterToButton = (char) =>
@@ -108,12 +108,12 @@ const specialCharacterToButton = (char) =>
         char.popular ? ' rich-text-editor-characters-popular' : ''
     }" ${char.latexCommand ? `data-command="${char.latexCommand}"` : ''} data-usewrite="${!char.noWrite}">${
         char.character
-    }</button>`
+    }</button>`;
 
-const popularInGroup = (group) => group.characters.filter((character) => character.popular).length
+const popularInGroup = (group) => group.characters.filter((character) => character.popular).length;
 
 function initSpecialCharacterToolbar($toolbar, mathEditor, hasAnswerFocus) {
-    const gridButtonWidthPx = 35
+    const gridButtonWidthPx = 35;
 
     $toolbar
         .find('[data-js="charactersList"]')
@@ -127,14 +127,14 @@ function initSpecialCharacterToolbar($toolbar, mathEditor, hasAnswerFocus) {
             ),
         )
         .on('mousedown', 'button', (e) => {
-            e.preventDefault()
+            e.preventDefault();
 
-            const character = e.currentTarget.innerText
-            const command = e.currentTarget.dataset.command
-            const useWrite = e.currentTarget.dataset.usewrite === 'true'
-            if (hasAnswerFocus()) window.document.execCommand('insertText', false, character)
-            else mathEditor.insertMath(command || character, undefined, useWrite)
-        })
+            const character = e.currentTarget.innerText;
+            const command = e.currentTarget.dataset.command;
+            const useWrite = e.currentTarget.dataset.usewrite === 'true';
+            if (hasAnswerFocus()) window.document.execCommand('insertText', false, character);
+            else mathEditor.insertMath(command || character, undefined, useWrite);
+        });
 }
 
 function initMathToolbar($mathToolbar, mathEditor) {
@@ -145,18 +145,18 @@ function initMathToolbar($mathToolbar, mathEditor) {
                     typeof o === 'string'
                         ? o
                         : `<button class="rich-text-editor-button rich-text-editor-button-grid" data-command="${
-                              o.action
-                          }" data-latexcommand="${o.label || ''}" data-usewrite="${o.useWrite || false}">
+                            o.action
+                        }" data-latexcommand="${o.label || ''}" data-usewrite="${o.useWrite || false}">
 <img src="${o.svg}"/>
 </button>`,
                 )
                 .join(''),
         )
         .on('mousedown', '.rich-text-editor-button-grid', (e) => {
-            e.preventDefault()
-            const dataset = e.currentTarget.dataset
-            mathEditor.insertMath(dataset.command, dataset.latexcommand, dataset.usewrite === 'true')
-        })
+            e.preventDefault();
+            const dataset = e.currentTarget.dataset;
+            mathEditor.insertMath(dataset.command, dataset.latexcommand, dataset.usewrite === 'true');
+        });
 
     $mathToolbar
         .append(
@@ -166,21 +166,21 @@ function initMathToolbar($mathToolbar, mathEditor) {
             </div>`,
         )
         .on('mousedown', '[data-js="mathUndo"]', (e) => {
-            e.preventDefault()
-            mathEditor.undoMath()
+            e.preventDefault();
+            mathEditor.undoMath();
         })
         .on('mousedown', '[data-js="mathRedo"]', (e) => {
-            e.preventDefault()
-            mathEditor.redoMath()
-        })
+            e.preventDefault();
+            mathEditor.redoMath();
+        });
 }
 
 function initNewEquation($newEquation, mathEditor, hasAnswerFocus) {
     $newEquation.mousedown(
         ((e) => {
-            e.preventDefault()
-            if (!hasAnswerFocus()) return // TODO: remove when button is only visible when textarea has focus
-            mathEditor.insertNewEquation()
+            e.preventDefault();
+            if (!hasAnswerFocus()) return; // TODO: remove when button is only visible when textarea has focus
+            mathEditor.insertNewEquation();
         }).bind(this),
-    )
+    );
 }

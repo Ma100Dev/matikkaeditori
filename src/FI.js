@@ -52,4 +52,4 @@ lisätä kuvia.</li></ul>`,
         langLink: '/sv/bedomning',
         langLabel: 'På svenska',
     },
-}
+};

@@ -5,4 +5,4 @@ export const sanitizeOpts = {
     },
     allowedSchemes: ['data'],
     exclusiveFilter: (frame) => frame.attribs['data-js'] === 'mathEditor',
-}
+};

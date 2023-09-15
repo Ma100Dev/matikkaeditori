@@ -49,4 +49,4 @@ export default {
         langLink: '/tarkistus',
         langLabel: 'Suomeksi',
     },
-}
+};
