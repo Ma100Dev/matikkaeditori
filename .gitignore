@@ -25,6 +25,5 @@ $RECYCLE.BIN/
 
 .idea
 target
-dist/
 *~
 *.swp
