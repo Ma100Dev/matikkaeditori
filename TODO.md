@@ -1,7 +1,7 @@
 # TODO
 - Latausindikaattori
-- Localstorage tms tallennus
 - Ulkoasu
+- Kuvanlaadun säätö
 - Kuvan sovelias rajaus
 - Jakelu
 - Korjaa tiedoston avaus

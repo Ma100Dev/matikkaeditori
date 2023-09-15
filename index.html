@@ -155,6 +155,20 @@
         reader.readAsText(file);
     }
 
+    // TODO: Sanitization
+    $('#answer1').html(localStorage.getItem('input'));
+
+    var target = document.querySelector('.answer');
+    var observer = new MutationObserver(() => {
+        localStorage.setItem('input', target.innerHTML);   
+    });
+    observer.observe(target, {
+        attributes:    false,
+        childList:     true,
+        characterData: true,
+        subtree:       true,
+    });
+
     $('#export-html').click(e => {
         e.preventDefault();
         const answer = $('.answer');
