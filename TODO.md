@@ -1,4 +1,5 @@
 # TODO
+- Tee HTML:n puhdistuksesta vähemmän agressiivinen
 - Latausindikaattori
 - Ulkoasu
 - Kuvanlaadun säätö
@@ -7,3 +8,4 @@
 - Korjaa tiedoston avaus
 - Toimii ilman internet-yhteyttä
 - "Haluatko varmasti sulkea?"
+- Avaa tiedostot muokkauskelpoisina

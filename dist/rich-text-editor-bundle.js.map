@@ -1,1 +1,1 @@
-{"version":3,"file":"rich-text-editor-bundle.js","sourceRoot":"","sources":["../src/rich-text-editor-bundle.js"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,yBAAyB,CAAC;AAEvD,MAAM,CAAC,YAAY,GAAG,YAAY,CAAC"}
+{"version":3,"file":"rich-text-editor-bundle.js","sourceRoot":"","sources":["../src/rich-text-editor-bundle.js"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,yBAAyB,CAAC;AACvD,OAAO,YAAY,MAAM,eAAe,CAAC;AAEzC,uCAAuC;AACvC,MAAM,CAAC,YAAY,GAAG,YAAY,CAAC;AACnC,MAAM,CAAC,YAAY,GAAG,YAAY,CAAC"}

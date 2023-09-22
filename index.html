@@ -145,7 +145,7 @@
     };
 
     const reader = new FileReader();
-    reader.onload = x => $('.answer').html(x.target.result);
+    reader.onload = x => $('.answer').html(sanitizeHtml(x.target.result));
 
     document.getElementById('input').addEventListener('change', handleFiles, false);
 
@@ -154,8 +154,7 @@
         reader.readAsText(file);
     }
 
-    // TODO: Sanitization
-    $('#answer1').html(localStorage.getItem('input'));
+    $('.answer').html(sanitizeHtml(localStorage.getItem('input')));
 
     var target = document.querySelector('.answer');
     var observer = new MutationObserver(() => {
